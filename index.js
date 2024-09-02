@@ -12,7 +12,9 @@ const authToken = process.env.TWILIO_AUTH_TOKEN;
 const whatsappFrom = process.env.TWILIO_WHATSAPP_FROM;
 const whatsappTo = process.env.TWILIO_WHATSAPP_TO;
 
+
 const client = twilio(accountSid, authToken);
+
 
 app.use(cors());
 app.use(express.json());
@@ -45,3 +47,5 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
+console.log('TWILIO_ACCOUNT_SID:', accountSid);
+console.log('TWILIO_AUTH_TOKEN:', authToken);
