@@ -47,5 +47,3 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
-console.log('TWILIO_ACCOUNT_SID:', accountSid);
-console.log('TWILIO_AUTH_TOKEN:', authToken);
