@@ -5,14 +5,14 @@ const twilio = require('twilio');
 const app = express();
 
 // Charger les variables d'environnement
-const accountSid = process.env.TWILIO_ACCOUNT_SID;
-const authToken = process.env.TWILIO_AUTH_TOKEN;
+const username = process.env.TWILIO_ACCOUNT_SID;
+const password = process.env.TWILIO_AUTH_TOKEN;
 const whatsappFrom = process.env.TWILIO_WHATSAPP_FROM;
 const whatsappTo = process.env.TWILIO_WHATSAPP_TO;
 
 // Initialiser le client Twilio
-const client = twilio(accountSid, authToken);
-
+const client = twilio(username, password);
+ 
 app.use(express.json());
 
 app.post('/send-whatsapp', (req, res) => {
