@@ -6,15 +6,13 @@ const twilio = require('twilio');
 const app = express();
 
 // Load environment variables
-const port = process.env.PORT || 3000; // Default to 3000 if PORT is not set
+const port = process.env.PORT || 3000;
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
 const whatsappFrom = process.env.TWILIO_WHATSAPP_FROM;
 const whatsappTo = process.env.TWILIO_WHATSAPP_TO;
 
-
 const client = twilio(accountSid, authToken);
-
 
 app.use(cors());
 app.use(express.json());
@@ -25,8 +23,8 @@ app.post('/send-whatsapp', (req, res) => {
 
   client.messages
     .create({
-      from: whatsappFrom, // Numéro WhatsApp Twilio from .env
-      to: whatsappTo, // Numéro marocain au format international from .env
+      from: whatsappFrom,
+      to: whatsappTo,
       body: `Nouveau message de ${name} (${email}, ${phone}):\n\n${message}`,
     })
     .then((message) => {
